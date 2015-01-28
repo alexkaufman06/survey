@@ -1,0 +1,13 @@
+<h1>Survey Time</h1>
+
+<% if @surveys.any?() %>
+  <% @surveys.each() do |survey| %>
+  <ul>
+    <li><a href="/survey/<%= survey.id() %>"><%= survey.name() %></a></li>
+  </ul>
+  <% end %>
+<% else %>
+  <p>You have no surveys!</p>
+<% end %>
+
+<a href="/admin">Admin</a>

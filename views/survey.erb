@@ -1,0 +1,13 @@
+<h1><%= @survey.name() %></h1>
+
+<% if @questions.any?() %>
+  <% @questions.each() do |question| %>
+    <ul>
+      <li><%= question.name() %></a></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>You have no questions!</p>
+<% end %>
+
+<a href="/">Back</a>

@@ -1,0 +1,43 @@
+<h1><%= @survey.name() %></h1>
+
+<h5>Add a question:</h5>
+
+<form action="/questions" method="post">
+  <input type="hidden" value="<%= @survey.id() %>" name="survey_id" />
+  <div class="form-group">
+    <input name="question_name" class="form-control" type="text" placeholder="What's your question?" required>
+    <br>
+    <button class="btn btn-success" type="submit">Create Question!</button>
+  </div>
+</form>
+
+<% if @questions.any?() %>
+  <% @questions.each() do |question| %>
+    <ul>
+      <li><a href="/questions/<%= question.id() %>"><%= question.name() %></a>
+        <form class="form-delete" action="/admin/survey/delete/<%= question.id() %>" method="get">
+          <input type="hidden" value="<%= @survey.id() %>" name="survey_id" />
+          <a href="/admin/survey/delete/<%= question.id() %>">
+            <button id="red" type="submit" class="btn btn-link"><em>Delete Question</em></button>
+          </a>
+        </form>
+      </li>
+
+    </ul>
+  <% end %>
+<% else %>
+  <p>You have no questions!</p>
+<% end %>
+
+<h5>Change survey name:</h5>
+
+<form action="/admin/survey/<%= @survey.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <div class="form-group">
+    <input name="survey_name" class="form-control" type="text" placeholder="Change Survey Name" required>
+    <br>
+    <button class="btn btn-success" value="submit">Change Name!</button>
+  </div>
+</form>
+
+<a href="/admin">Back</a>

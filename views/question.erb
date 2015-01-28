@@ -1,0 +1,14 @@
+<h1><%= @question.name() %></h1>
+
+<h5>Change question name:</h5>
+
+<form action="/questions/<%= @question.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <div class="form-group">
+    <input name="question_name" class="form-control" type="text" placeholder="Change Question Name" required>
+    <br />
+    <button class="btn btn-success" value="submit">Change Name!</button>
+  </div>
+</form>
+
+<a href="/admin">Back</a>

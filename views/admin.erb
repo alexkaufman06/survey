@@ -1,0 +1,27 @@
+<h3>Admin page</h3>
+
+<h5>Add a survey:</h5>
+
+<form action="/admin" method="post">
+  <div class="form-group">
+    <label for="survey_name">Survey name:</label>
+    <input name="survey_name" class="form-control" type="text" placeholder="Survey Name" required>
+    <br>
+    <button class="btn btn-success" value="submit">Create Survey!</button>
+  </div>
+</form>
+
+<% if @surveys.any?() %>
+  <% @surveys.each() do |survey| %>
+  <ul>
+    <li>
+      <a href="/admin/survey/<%= survey.id() %>"><%= survey.name() %> </a>
+      <a href="/admin/delete/<%= survey.id() %>"><em>Delete Survey</em></a>
+    </li>
+  </ul>
+  <% end %>
+<% else %>
+  <p>You have no surveys!</p>
+<% end %>
+
+<a href="/">Back</a>

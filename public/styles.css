@@ -1,0 +1,12 @@
+em {
+  color: red;
+  padding-left: 15px;
+}
+
+.form-delete {
+  display: inline;
+}
+
+#red {
+  color: red;
+}
