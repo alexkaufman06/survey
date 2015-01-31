@@ -1,4 +1,4 @@
-# Recipe Box
+# Survey
 This is an app that allows the user to look at survey questions and the admin can create surveys and questions.  This project is still a work in progress.
 ## Setup Instructions:
 ### Gems Used:
